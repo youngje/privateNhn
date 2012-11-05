@@ -25,7 +25,7 @@ public class UpgradeCheckTest {
     }
 	
 	@Test
-	public void UpgrateCheck() throws Exception{
+	public void UpgradeCheck() throws Exception{
 		//When
 		UpgradeCheck n4 = new UpgradeCheck();
 		
