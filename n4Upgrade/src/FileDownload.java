@@ -12,6 +12,7 @@ public class FileDownload {
         OutputStream out = null; 
         URLConnection conn = null; 
         InputStream  in = null; 
+        
         try { 
             URL url = new URL(address); 
             out = new BufferedOutputStream( 
@@ -26,6 +27,7 @@ public class FileDownload {
                 numWritten += numRead; 
             } 
             System.out.println(localFileName + "\t" + numWritten); 
+            
         } catch (Exception exception) { 
             exception.printStackTrace(); 
         } finally { 
@@ -41,7 +43,7 @@ public class FileDownload {
         } 
     } 
 
-    public static void download(String address) { 
+    public static String download(String address) { 
         int lastSlashIndex = address.lastIndexOf('/'); 
         if (lastSlashIndex >= 0 && 
             lastSlashIndex < address.length() - 1) { 
@@ -49,12 +51,13 @@ public class FileDownload {
         } else { 
             System.err.println("Could not figure out local file name for " + 
                 address); 
-        } 
+        }
+        return address.substring(lastSlashIndex + 1);
     } 
 
-    public static void main(String[] args) { 
+    /*public static void main(String[] args) { 
         for (int i = 0; i < args.length; i++) { 
             download(args[i]); 
         } 
-    } 
+    }*/ 
 }
